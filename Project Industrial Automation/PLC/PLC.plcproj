@@ -27,6 +27,9 @@
     <Compile Include="POUs\FB2_Counters.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\FC10_Relaisschakel.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\MAIN.TcPOU">
       <SubType>Code</SubType>
     </Compile>
