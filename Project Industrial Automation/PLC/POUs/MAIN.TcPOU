@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="MAIN" Id="{45645433-dc31-41f0-b2c9-ed74135009fc}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	FB2_Counters : FB2_Counters;
+END_VAR
+	]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+FB2_Counters();
+DIDO.Uitgang1 := FB2_Counters.t_timerLow.Q;
+]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="7" Count="0" />
+      <LineId Id="2" Count="0" />
+      <LineId Id="8" Count="1" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

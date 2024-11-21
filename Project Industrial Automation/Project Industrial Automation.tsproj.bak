@@ -15,44 +15,9 @@
 		</System>
 		<Plc>
 			<Project GUID="{EE5FE770-AF21-4DB2-AA1B-35E04610F6A3}" Name="PLC" PrjFilePath="PLC\PLC.plcproj" TmcFilePath="PLC\PLC.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{0D52CD18-5E42-2387-1041-F113D050447F}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{98DE75C4-157D-3A87-3D36-B7361D1ECC9F}">
 					<Name>PLC Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
-					<Vars VarGrpType="1">
-						<Name>PlcTask Inputs</Name>
-						<Var>
-							<Name>DIDO.Ingang1</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>DIDO.Ingang2</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>DIDO.Ingang3</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>DIDO.Ingang4</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>DIDO.Ingang5</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>DIDO.Ingang6</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>DIDO.Ingang7</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>DIDO.Ingang8</Name>
-							<Type>BIT</Type>
-						</Var>
-					</Vars>
 					<Vars VarGrpType="2" AreaNo="1">
 						<Name>PlcTask Outputs</Name>
 						<Var>
@@ -195,16 +160,6 @@
 	<Mappings>
 		<MappingInfo Identifier="{00000000-2001-0850-0020-500810000403}" Id="#x02030010"/>
 		<OwnerA Name="TIPC^PLC^PLC Instance">
-			<OwnerB Name="TIID^EC_Master (EtherCAT)^EK1100 (EK1100)^EL1008 (EL1008)">
-				<Link VarA="PlcTask Inputs^DIDO.Ingang1" VarB="Channel 1^Input"/>
-				<Link VarA="PlcTask Inputs^DIDO.Ingang2" VarB="Channel 2^Input"/>
-				<Link VarA="PlcTask Inputs^DIDO.Ingang3" VarB="Channel 3^Input"/>
-				<Link VarA="PlcTask Inputs^DIDO.Ingang4" VarB="Channel 4^Input"/>
-				<Link VarA="PlcTask Inputs^DIDO.Ingang5" VarB="Channel 5^Input"/>
-				<Link VarA="PlcTask Inputs^DIDO.Ingang6" VarB="Channel 6^Input"/>
-				<Link VarA="PlcTask Inputs^DIDO.Ingang7" VarB="Channel 7^Input"/>
-				<Link VarA="PlcTask Inputs^DIDO.Ingang8" VarB="Channel 8^Input"/>
-			</OwnerB>
 			<OwnerB Name="TIID^EC_Master (EtherCAT)^EK1100 (EK1100)^EL2004 (EL2004)">
 				<Link VarA="PlcTask Outputs^DIDO.Uitgang1" VarB="Channel 1^Output"/>
 				<Link VarA="PlcTask Outputs^DIDO.Uitgang2" VarB="Channel 2^Output"/>
