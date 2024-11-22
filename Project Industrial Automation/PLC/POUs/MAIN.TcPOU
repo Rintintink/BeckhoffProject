@@ -4,7 +4,7 @@
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
 	FB2_Counters : FB2_Counters;
-	
+	timer : TON;
 END_VAR
 	]]></Declaration>
     <Implementation>
@@ -13,6 +13,15 @@ FB2_Counters();
  
 DIDO.Uitgang2 := DIDO.Ingang5;
 
+timer.PT := T#5S;
+timer.IN := TRUE;
+timer();
+
+DIDO.Uitgang1 := timer.Q; 
+
+IF DIDO.Ingang1 THEN
+	timer.IN := FALSE;
+END_IF
 
 ]]></ST>
     </Implementation>
@@ -21,8 +30,16 @@ DIDO.Uitgang2 := DIDO.Ingang5;
       <LineId Id="2" Count="0" />
       <LineId Id="55" Count="0" />
       <LineId Id="53" Count="0" />
+      <LineId Id="71" Count="0" />
+      <LineId Id="70" Count="0" />
       <LineId Id="57" Count="0" />
-      <LineId Id="56" Count="0" />
+      <LineId Id="73" Count="1" />
+      <LineId Id="72" Count="0" />
+      <LineId Id="68" Count="0" />
+      <LineId Id="65" Count="0" />
+      <LineId Id="75" Count="0" />
+      <LineId Id="78" Count="0" />
+      <LineId Id="77" Count="0" />
       <LineId Id="58" Count="0" />
     </LineIds>
   </POU>
