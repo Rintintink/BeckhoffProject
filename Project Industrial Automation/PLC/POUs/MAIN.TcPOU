@@ -10,24 +10,20 @@ END_VAR
     <Implementation>
       <ST><![CDATA[FB2_Counters();
 
-DIDO.Uitgang2 := DIDO.Ingang5;
+FC10_Alias();
 
-// Configure the timer
-timer.PT := T#5S;
+Alias.q_relaisTest := Alias.i_fotoCel;
 
-IF NOT DIDO.Ingang1 THEN
-    timer.IN := TRUE; 
-    timer();          
-    DIDO.Uitgang1 := timer.Q; 
-ELSE
-    timer.IN := FALSE; 
-    timer();           
-    DIDO.Uitgang1 := FALSE; 
-END_IF
+
 ]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
-      <LineId Id="96" Count="15" />
+      <LineId Id="96" Count="0" />
+      <LineId Id="112" Count="0" />
+      <LineId Id="97" Count="0" />
+      <LineId Id="113" Count="0" />
+      <LineId Id="98" Count="1" />
+      <LineId Id="111" Count="0" />
       <LineId Id="58" Count="0" />
     </LineIds>
   </POU>
