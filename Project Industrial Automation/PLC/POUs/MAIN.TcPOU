@@ -8,38 +8,26 @@ VAR
 END_VAR
 	]]></Declaration>
     <Implementation>
-      <ST><![CDATA[
-FB2_Counters();
- 
+      <ST><![CDATA[FB2_Counters();
+
 DIDO.Uitgang2 := DIDO.Ingang5;
 
+// Configure the timer
 timer.PT := T#5S;
-timer.IN := TRUE;
-timer();
 
-DIDO.Uitgang1 := timer.Q; 
-
-IF DIDO.Ingang1 THEN
-	timer.IN := FALSE;
+IF NOT DIDO.Ingang1 THEN
+    timer.IN := TRUE; 
+    timer();          
+    DIDO.Uitgang1 := timer.Q; 
+ELSE
+    timer.IN := FALSE; 
+    timer();           
+    DIDO.Uitgang1 := FALSE; 
 END_IF
-
 ]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
-      <LineId Id="7" Count="0" />
-      <LineId Id="2" Count="0" />
-      <LineId Id="55" Count="0" />
-      <LineId Id="53" Count="0" />
-      <LineId Id="71" Count="0" />
-      <LineId Id="70" Count="0" />
-      <LineId Id="57" Count="0" />
-      <LineId Id="73" Count="1" />
-      <LineId Id="72" Count="0" />
-      <LineId Id="68" Count="0" />
-      <LineId Id="65" Count="0" />
-      <LineId Id="75" Count="0" />
-      <LineId Id="78" Count="0" />
-      <LineId Id="77" Count="0" />
+      <LineId Id="96" Count="15" />
       <LineId Id="58" Count="0" />
     </LineIds>
   </POU>
