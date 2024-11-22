@@ -7,12 +7,30 @@ VAR_GLOBAL
 	ix_fotoCel : BOOL;
 	qx_relaisTest : BOOL;
 	
-	ix_lengteFotocel : BOOL;
+	// ingangen Noodstop
+	ix_E_stopNC : BOOL;
+	ix_E_stopNO : BOOL; 
 	
+	// ingangen fotocel
+	ix_lengteFC : BOOL;
+	ix_hamsterGripperDetectieFC : BOOL;
+	
+	
+	
+	// start/ stop uitgangen extruder&cutting tool
 	qx_extruderRelaisStart : BOOL;
 	qx_extruderRelaisStop: BOOL;
 	qx_cuttingtoolRelaisActiveer : BOOL;
 	qx_cuttingtoolRelaisDeactiveer : BOOL;
+	
+	//uitgangen gereserveerd voor KUKA/Engel communicatie
+	// E stop
+	// bitlevel comm's
+	qx_kukaCommEstop : BOOL;
+	qx_kukaComm2 : BOOL;
+	qx_kukaComm3 : BOOL;
+	qx_kukaComm4 : BOOL;
+	
 	
 END_VAR]]></Declaration>
   </GVL>
