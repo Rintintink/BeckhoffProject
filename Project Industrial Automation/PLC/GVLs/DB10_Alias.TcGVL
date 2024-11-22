@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <GVL Name="DB10_Alias" Id="{125f7c14-bc07-4185-8080-6bf9d7d4c446}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+		
+	ix_fotoCel : BOOL;
+	qx_relaisTest : BOOL;
+	
+	ix_lengteFotocel : BOOL;
+	
+	qx_extruderRelaisStart : BOOL;
+	qx_extruderRelaisStop: BOOL;
+	qx_cuttingtoolRelaisActiveer : BOOL;
+	qx_cuttingtoolRelaisDeactiveer : BOOL;
+	
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

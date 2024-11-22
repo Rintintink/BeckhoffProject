@@ -6,7 +6,9 @@ VAR_INPUT
 END_VAR
 VAR
 END_VAR
-]]></Declaration>
+
+//IO vertaling van tag naar in en uitgangen
+//]]></Declaration>
     <Implementation>
       <NWL>
         <XmlArchive>
@@ -29,7 +31,7 @@ END_VAR
                       <o n="OutputItems" t="OutputItemList">
                         <l2 n="OutputItems" cet="Operand">
                           <o>
-                            <v n="Operand">"Alias.i_fotoCel"</v>
+                            <v n="Operand">"DB10_Alias.ix_fotoCel"</v>
                             <v n="Type">"BOOL"</v>
                             <v n="Comment">""</v>
                             <v n="SymbolComment">""</v>
@@ -114,7 +116,7 @@ END_VAR
                       </o>
                       <o n="RValue" t="BoxTreeOperand">
                         <o n="Operand" t="Operand">
-                          <v n="Operand">"Alias.q_relaisTest"</v>
+                          <v n="Operand">"DB10_Alias.qx_relaisTest"</v>
                           <v n="Type">"BOOL"</v>
                           <v n="Comment">""</v>
                           <v n="SymbolComment">""</v>
