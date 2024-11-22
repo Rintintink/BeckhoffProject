@@ -4,7 +4,7 @@
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
 		
-	ix_fotoCel : BOOL;
+	ix_fotoCelTest : BOOL;
 	qx_relaisTest : BOOL;
 	
 	// ingangen Noodstop
@@ -15,22 +15,24 @@ VAR_GLOBAL
 	ix_lengteFC : BOOL;
 	ix_hamsterGripperDetectieFC : BOOL;
 	
-	
+	ix_reedCuttingtoolCilinder : BOOL;
+	ix_reedGripperCilinder1 : BOOL;
+	ix_reedGripperCilinder2 : BOOL;
 	
 	// start/ stop uitgangen extruder&cutting tool
-	qx_extruderRelaisStart : BOOL;
-	qx_extruderRelaisStop: BOOL;
-	qx_cuttingtoolRelaisActiveer : BOOL;
-	qx_cuttingtoolRelaisDeactiveer : BOOL;
+	qx_relaisExtruderStart : BOOL;
+	qx_relaisExtruderStop: BOOL;
+	qx_relaisCuttingtoolActiveer : BOOL;
+	qx_relaisCuttingtoolDeactiveer : BOOL;
 	
 	//uitgangen gereserveerd voor KUKA/Engel communicatie
 	// E stop
 	// bitlevel comm's
-	qx_kukaCommEstop : BOOL;
-	qx_kukaComm2 : BOOL;
-	qx_kukaComm3 : BOOL;
-	qx_kukaComm4 : BOOL;
-	
+	qx_kukaCommEstop : BOOL; // E_stop
+	qx_kukaComm2 : BOOL; // sein veilig
+	qx_kukaComm3 : BOOL; // startcommando
+	qx_kukaComm4 : BOOL; // alarm
+	qx_kukaComm5 : BOOL; // ander spul weet ik veel
 	
 END_VAR]]></Declaration>
   </GVL>
