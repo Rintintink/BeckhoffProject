@@ -4,22 +4,31 @@
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
 	FB2_Counters : FB2_Counters;
-	
+	RUN : INT ;  
 END_VAR
 	]]></Declaration>
     <Implementation>
       <ST><![CDATA[
 
-FB2_Counters();
-FC10_Alias();
 
-DB10_Alias.qx_relaisTest := DB10_Alias.ix_fotoCelTest;
+// Init spulletjes
+FC10_Alias();
+FB2_Counters();
+FC3_Safety();
+
+
+CASE 
+FC_PRG1();
 ]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
       <LineId Id="114" Count="1" />
-      <LineId Id="96" Count="1" />
-      <LineId Id="113" Count="0" />
+      <LineId Id="121" Count="1" />
+      <LineId Id="127" Count="0" />
+      <LineId Id="96" Count="0" />
+      <LineId Id="128" Count="0" />
+      <LineId Id="130" Count="1" />
+      <LineId Id="129" Count="0" />
       <LineId Id="98" Count="0" />
       <LineId Id="58" Count="0" />
     </LineIds>

@@ -18,27 +18,33 @@
     <Released>false</Released>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Counters\FB2_Counters.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DIDO.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
     <Compile Include="GlobalTextList.TcGTLO">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="GVLs\DB10_Alias.TcGVL">
+    <Compile Include="Interface\DB10_Alias.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
-    <Compile Include="GVLs\DIDO.TcGVL">
+    <Compile Include="Interface\FC10_Alias.TcPOU">
       <SubType>Code</SubType>
-      <LinkAlways>true</LinkAlways>
     </Compile>
     <Compile Include="PlcTask.TcTTO">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\FB2_Counters.TcPOU">
+    <Compile Include="POUs\FC3_Safety.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\FC_PRG1.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\MAIN.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\FC10_Alias.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Visualization Manager.TcVMO">
@@ -52,6 +58,8 @@
   <ItemGroup>
     <Folder Include="DUTs" />
     <Folder Include="GVLs" />
+    <Folder Include="Interface" />
+    <Folder Include="Counters" />
     <Folder Include="VISUs" />
     <Folder Include="POUs" />
   </ItemGroup>

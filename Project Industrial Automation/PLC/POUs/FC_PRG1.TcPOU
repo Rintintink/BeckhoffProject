@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="FC_PRG1" Id="{3c2d693e-a12f-40bc-9ef3-094978264baf}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION FC_PRG1 : BOOL
+VAR_INPUT
+END_VAR
+VAR
+
+	Stap : DINT;
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+CASE Stap OF
+	
+	
+	
+	
+END_CASE]]></ST>
+    </Implementation>
+    <LineIds Name="FC_PRG1">
+      <LineId Id="11" Count="0" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="15" Count="1" />
+      <LineId Id="14" Count="0" />
+      <LineId Id="13" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
