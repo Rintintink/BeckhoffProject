@@ -13,17 +13,14 @@ END_VAR
 FB2_Counters();
 FC10_Alias();
 
-
-
-
+DB10_Alias.qx_relaisTest := DB10_Alias.ix_fotoCelTest;
 ]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
       <LineId Id="114" Count="1" />
       <LineId Id="96" Count="1" />
       <LineId Id="113" Count="0" />
-      <LineId Id="98" Count="1" />
-      <LineId Id="111" Count="0" />
+      <LineId Id="98" Count="0" />
       <LineId Id="58" Count="0" />
     </LineIds>
   </POU>

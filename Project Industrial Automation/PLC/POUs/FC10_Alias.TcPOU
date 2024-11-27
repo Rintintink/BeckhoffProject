@@ -133,7 +133,7 @@ END_VAR
                       <o n="OutputItems" t="OutputItemList">
                         <l2 n="OutputItems" cet="Operand">
                           <o>
-                            <v n="Operand">"DB10_Alias.ix_fotoCelTest"</v>
+                            <v n="Operand">"DB10_Alias.ix_lengteFC"</v>
                             <v n="Type">"BOOL"</v>
                             <v n="Comment">""</v>
                             <v n="SymbolComment">""</v>
@@ -218,7 +218,7 @@ END_VAR
                       </o>
                       <o n="RValue" t="BoxTreeOperand">
                         <o n="Operand" t="Operand">
-                          <v n="Operand">"DB10_Alias.qx_relaisTest"</v>
+                          <v n="Operand">"DB10_Alias.qx_relaisCuttingtoolActiveer"</v>
                           <v n="Type">"BOOL"</v>
                           <v n="Comment">""</v>
                           <v n="SymbolComment">""</v>

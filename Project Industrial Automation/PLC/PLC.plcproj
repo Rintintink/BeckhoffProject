@@ -15,6 +15,7 @@
     <Implicit_KindOfTask>{ed9952e1-5a0a-45c9-a50a-4509dd472333}</Implicit_KindOfTask>
     <Implicit_Jitter_Distribution>{509ca9df-6984-4c47-81f9-4a7c9a67b744}</Implicit_Jitter_Distribution>
     <LibraryReferences>{696b7561-11d7-4380-82a7-c642b78359a6}</LibraryReferences>
+    <Released>false</Released>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="GlobalTextList.TcGTLO">
