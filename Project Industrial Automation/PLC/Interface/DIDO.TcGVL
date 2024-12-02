@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <GVL Name="DIDO" Id="{3d724e1e-c23f-4ae7-8097-47a78866d086}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	
+
+	// Digitale ingangen
+	Ingang1 AT %IX40.0 : BOOL;
+	Ingang2 AT %IX40.1 : BOOL;
+	Ingang3 AT %IX40.2 : BOOL;
+	Ingang4 AT %IX40.3 : BOOL;
+	Ingang5 AT %IX40.4 : BOOL;
+	Ingang6 AT %IX40.5 : BOOL;
+	Ingang7 AT %IX40.6 : BOOL;
+	Ingang8 AT %IX40.7 : BOOL;
+
+	Ingang9 AT %IX41.0 : BOOL;
+	Ingang10 AT %IX41.1 : BOOL;
+	Ingang11 AT %IX41.2 : BOOL;
+	Ingang12 AT %IX41.3 : BOOL;
+	Ingang13 AT %IX41.4 : BOOL;
+	Ingang14 AT %IX41.5 : BOOL;
+	Ingang15 AT %IX41.6 : BOOL;
+	Ingang16 AT %IX41.7 : BOOL;
+	
+	
+	// Digitale uitgangen
+	Uitgang1 AT %QX26.0 : BOOL;
+	Uitgang2 AT %QX26.1 : BOOL;
+	Uitgang3 AT %QX26.2 : BOOL;
+	Uitgang4 AT %QX26.3 : BOOL;
+	Uitgang5 AT %QX26.4 : BOOL;
+	Uitgang6 AT %QX26.5 : BOOL;
+	Uitgang7 AT %QX26.6 : BOOL;
+	Uitgang8 AT %QX26.7 : BOOL;
+	Uitgang9 AT %QX27.0 : BOOL;
+	Uitgang10 AT %QX27.1 : BOOL;
+	Uitgang11 AT %QX27.2 : BOOL;
+	Uitgang12 AT %QX27.3 : BOOL;	
+	
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

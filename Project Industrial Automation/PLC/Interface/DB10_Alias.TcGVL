@@ -12,7 +12,8 @@ VAR_GLOBAL
 	ix_lengteFC : BOOL;
 	ix_hamsterGripperDetectieFC : BOOL;
 	
-	ix_reedCuttingtoolCilinder : BOOL;
+	ix_reedCuttingtoolCilinderOpen : BOOL;
+	ix_reedCuttingtoolCilinderGesloten : BOOL;
 	ix_reedGripperCilinder1 : BOOL;
 	ix_reedGripperCilinder2 : BOOL;
 	

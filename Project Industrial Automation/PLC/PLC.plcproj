@@ -21,27 +21,35 @@
     <Compile Include="Counters\FB2_Counters.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DIDO.TcGVL">
-      <SubType>Code</SubType>
-      <LinkAlways>true</LinkAlways>
-    </Compile>
     <Compile Include="GlobalTextList.TcGTLO">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="GVLs\GVL.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
     <Compile Include="Interface\DB10_Alias.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="Interface\DIDO.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
     <Compile Include="Interface\FC10_Alias.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Main Functie\DB_PRG1.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="Main Functie\FC_PRG1.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="PlcTask.TcTTO">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\FC3_Safety.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\FC_PRG1.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\MAIN.TcPOU">
@@ -60,6 +68,7 @@
     <Folder Include="GVLs" />
     <Folder Include="Interface" />
     <Folder Include="Counters" />
+    <Folder Include="Main Functie" />
     <Folder Include="VISUs" />
     <Folder Include="POUs" />
   </ItemGroup>

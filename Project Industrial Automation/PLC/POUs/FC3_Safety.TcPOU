@@ -8,10 +8,20 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[
+
+IF  DB10_Alias.ix_E_stopNC AND NOT DB10_Alias.ix_E_stopNO THEN
+	
+	FC3_Safety := TRUE;
+ELSE
+	FC3_Safety := FALSE;
+END_IF ]]></ST>
     </Implementation>
     <LineIds Name="FC3_Safety">
+      <LineId Id="13" Count="1" />
       <LineId Id="7" Count="0" />
+      <LineId Id="18" Count="3" />
+      <LineId Id="16" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>

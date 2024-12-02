@@ -12,24 +12,33 @@ END_VAR
 
 
 // Init spulletjes
-FC10_Alias();
+
 FB2_Counters();
-FC3_Safety();
+FC10_Alias();
+GVL.safetyOK := FC3_Safety();
 
+IF GVL.safetyOK THEN
 
-CASE 
-FC_PRG1();
-]]></ST>
+ 
+	FC_PRG1();
+ELSE
+	DB_PRG1.PRG1Stap := 808; 
+END_IF]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
       <LineId Id="114" Count="1" />
       <LineId Id="121" Count="1" />
       <LineId Id="127" Count="0" />
       <LineId Id="96" Count="0" />
+      <LineId Id="137" Count="0" />
       <LineId Id="128" Count="0" />
-      <LineId Id="130" Count="1" />
+      <LineId Id="138" Count="0" />
       <LineId Id="129" Count="0" />
+      <LineId Id="147" Count="0" />
+      <LineId Id="139" Count="0" />
       <LineId Id="98" Count="0" />
+      <LineId Id="149" Count="0" />
+      <LineId Id="151" Count="0" />
       <LineId Id="58" Count="0" />
     </LineIds>
   </POU>
