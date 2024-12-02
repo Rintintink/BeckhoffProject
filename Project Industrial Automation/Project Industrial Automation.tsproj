@@ -15,13 +15,14 @@
 		</System>
 		<Plc>
 			<Project GUID="{EE5FE770-AF21-4DB2-AA1B-35E04610F6A3}" Name="PLC" PrjFilePath="PLC\PLC.plcproj" TmcFilePath="PLC\PLC.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="PLC\PLC.tmc" TmcHash="{5630EC70-A65C-2468-FD18-7AB8C6896B23}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="PLC\PLC.tmc" TmcHash="{9485DB22-77E2-EA3D-12A4-26BDCEB9709C}">
 					<Name>PLC Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
 						<Name>PlcTask Inputs</Name>
 						<Var>
 							<Name>DIDO.Ingang1</Name>
+							<Comment><![CDATA[ Digitale ingangen]]></Comment>
 							<Type>BIT</Type>
 						</Var>
 						<Var>
@@ -52,11 +53,44 @@
 							<Name>DIDO.Ingang8</Name>
 							<Type>BIT</Type>
 						</Var>
+						<Var>
+							<Name>DIDO.Ingang9</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>DIDO.Ingang10</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>DIDO.Ingang11</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>DIDO.Ingang12</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>DIDO.Ingang13</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>DIDO.Ingang14</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>DIDO.Ingang15</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>DIDO.Ingang16</Name>
+							<Type>BIT</Type>
+						</Var>
 					</Vars>
 					<Vars VarGrpType="2" AreaNo="1">
 						<Name>PlcTask Outputs</Name>
 						<Var>
 							<Name>DIDO.Uitgang1</Name>
+							<Comment><![CDATA[ Digitale uitgangen]]></Comment>
 							<Type>BIT</Type>
 						</Var>
 						<Var>
@@ -69,6 +103,38 @@
 						</Var>
 						<Var>
 							<Name>DIDO.Uitgang4</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>DIDO.Uitgang5</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>DIDO.Uitgang6</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>DIDO.Uitgang7</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>DIDO.Uitgang8</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>DIDO.Uitgang9</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>DIDO.Uitgang10</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>DIDO.Uitgang11</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>DIDO.Uitgang12</Name>
 							<Type>BIT</Type>
 						</Var>
 					</Vars>
@@ -94,9 +160,9 @@
 				<Name>EC_Master (EtherCAT)</Name>
 				<AddressInfo>
 					<Pnp>
-						<DeviceDesc>Ethernet 2 (TwinCAT-Intel PCI Ethernet Adapter (Gig</DeviceDesc>
-						<DeviceName>\DEVICE\{739DB13B-EB59-40EC-BF53-4C4A386643A3}</DeviceName>
-						<DeviceData>2cf7f11ef913</DeviceData>
+						<DeviceDesc></DeviceDesc>
+						<DeviceName></DeviceName>
+						<DeviceData>000000000000</DeviceData>
 					</Pnp>
 				</AddressInfo>
 				<Image Id="1" AddrType="9" ImageType="3">

@@ -4,6 +4,9 @@
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
 	PRG1Stap : INT;
+	
+	t_prgT1 : TON;
+	t_prgT2 : TON;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

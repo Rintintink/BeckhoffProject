@@ -9,6 +9,7 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[
+IF NOT DB10_Alias.b_IOSimulatie THEN
 (*		
 	// ingangen Noodstop
 	ix_E_stopNC := DIDO.Ingang1;
@@ -42,10 +43,15 @@ END_VAR
 	ix_kukaComm4 : BOOL; 		// alarm
 
 	*)
+	
+END_IF
 ]]></ST>
     </Implementation>
     <LineIds Name="FC10_Alias">
-      <LineId Id="11" Count="33" />
+      <LineId Id="46" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="49" Count="32" />
+      <LineId Id="47" Count="1" />
       <LineId Id="7" Count="0" />
     </LineIds>
   </POU>

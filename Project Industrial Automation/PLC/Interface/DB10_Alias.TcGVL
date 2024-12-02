@@ -4,6 +4,8 @@
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
 		
+
+	b_IOSimulatie : BOOL := TRUE;
 	// ingangen Noodstop
 	ix_E_stopNC : BOOL;
 	ix_E_stopNO : BOOL; 
