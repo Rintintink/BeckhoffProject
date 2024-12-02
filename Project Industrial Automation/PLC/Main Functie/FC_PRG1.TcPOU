@@ -9,7 +9,7 @@ END_VAR
 VAR
 
 	Foutcode : INT; 
-	
+	Melding : STRING[20];
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -68,13 +68,32 @@ CASE DB_PRG1.PRG1Stap OF
 			
 		END_IF
 	;
+	40:	// cuttingtool deactiveer
+		IF DB_PRG1.t_prgT2.Q THEN
+			DB10_Alias.qx_relaisCuttingtoolDeactiveer := TRUE;	
+			DB_PRG1.t_prgT2.IN := FALSE;
+		END_IF
+		
+		DB_PRG1.t_prgT3(IN:=TRUE,PT:=T#4S);
+		
+		IF DB10_Alias.ix_reedCuttingtoolCilinderOpen THEN
+			DB10_Alias.qx_relaisCuttingtoolDeactiveer := FALSE;
+			DB_PRG1.PRG1Stap := 50;
+		ELSIF DB_PRG1.t_prgT3.Q THEN
 	
+			DB_PRG1.t_prgT3.IN := FALSE;
+			Foutcode := 2;
+			DB_PRG1.PRG1Stap:= 808;
+			
+		END_IF
+	
+	;
 	
 	808: // Fout fout hella fout
 		CASE Foutcode OF
-			1:
+			1: Melding := 'Cuttingtool sluiten fout'
 			; 
-			2:	
+			2: Melding := 'Cuttingtool openen fout'
 			;
 			3:
 			;
@@ -129,7 +148,19 @@ END_CASE]]></ST>
       <LineId Id="90" Count="0" />
       <LineId Id="76" Count="1" />
       <LineId Id="75" Count="0" />
-      <LineId Id="44" Count="2" />
+      <LineId Id="44" Count="1" />
+      <LineId Id="110" Count="0" />
+      <LineId Id="114" Count="0" />
+      <LineId Id="116" Count="0" />
+      <LineId Id="115" Count="0" />
+      <LineId Id="120" Count="0" />
+      <LineId Id="113" Count="0" />
+      <LineId Id="121" Count="0" />
+      <LineId Id="117" Count="1" />
+      <LineId Id="122" Count="6" />
+      <LineId Id="119" Count="0" />
+      <LineId Id="111" Count="1" />
+      <LineId Id="46" Count="0" />
       <LineId Id="38" Count="0" />
       <LineId Id="89" Count="0" />
       <LineId Id="91" Count="0" />

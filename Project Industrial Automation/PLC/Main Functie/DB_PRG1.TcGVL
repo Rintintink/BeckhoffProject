@@ -7,6 +7,8 @@ VAR_GLOBAL
 	
 	t_prgT1 : TON;
 	t_prgT2 : TON;
+	t_prgT3 : TON;
+	t_prgT4 : TON;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

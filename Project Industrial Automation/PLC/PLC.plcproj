@@ -21,6 +21,9 @@
     <Compile Include="Counters\FB2_Counters.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="FC_Comms1.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="GlobalTextList.TcGTLO">
       <SubType>Code</SubType>
     </Compile>

@@ -5,7 +5,10 @@
 VAR_GLOBAL
 	
 	safetyOK : BOOL;
+	
+	// KUKA communicaties	
 	i_KUKAStatus : INT;
+	b_startBeweging : BOOL;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
