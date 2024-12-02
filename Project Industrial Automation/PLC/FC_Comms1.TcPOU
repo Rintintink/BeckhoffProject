@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="FC_Comms1" Id="{16b8c8f8-ee1f-45bc-88d0-07396f66986f}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION FC_Comms1 : INT
+VAR_INPUT
+	ix_gereed : BOOL;
+	ix_ALARM : BOOL;
+	
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// KUKA Robot naar PLC communicatie;
+
+IF ix_gereed AND NOT ix_ALARM THEN
+	FC_Comms1 := 1;
+ELSIF ix_ALARM THEN
+	FC_Comms1 := 2;
+ELSE 
+	FC_Comms1 := 0;	
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="FC_Comms1">
+      <LineId Id="7" Count="0" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="16" Count="3" />
+      <LineId Id="14" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

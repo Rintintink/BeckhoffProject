@@ -4,30 +4,26 @@
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
 	FB2_Counters : FB2_Counters;
-	RUN : INT ;  
+	
 END_VAR
 	]]></Declaration>
     <Implementation>
-      <ST><![CDATA[
-
-
-// Init spulletjes
+      <ST><![CDATA[// Init spulletjes
 
 FB2_Counters();
 FC10_Alias();
 GVL.safetyOK := FC3_Safety();
 
-FC_PRG1(GVL.safetyOK, TRUE); // hardcoded TRUE vanaf de KUKA;
-]]></ST>
+// FC Comms from KUKA.
+GVL.i_KUKAStatus := FC_Comms1(DB10_Alias.ix_kukaGereed,DB10_Alias.ix_kukaAlarmIN);
+
+ 
+FC_PRG1(GVL.safetyOK, GVL.i_KUKAStatus); // hardcoded TRUE vanaf de KUKA;
+
+// FC COmms to KUKA]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
-      <LineId Id="114" Count="1" />
-      <LineId Id="121" Count="1" />
-      <LineId Id="127" Count="0" />
-      <LineId Id="96" Count="0" />
-      <LineId Id="137" Count="0" />
-      <LineId Id="128" Count="1" />
-      <LineId Id="98" Count="0" />
+      <LineId Id="161" Count="11" />
       <LineId Id="58" Count="0" />
     </LineIds>
   </POU>

@@ -34,8 +34,8 @@ VAR_GLOBAL
 	// bitlevel comm's
 	qx_kukaCommEstop : BOOL; 	// E_stop
 	qx_kukaComm2 : BOOL; 		// startcommando
-	ix_kukaComm3 : BOOL; 		// persencompleet
-	ix_kukaComm4 : BOOL; 		// alarm
+	ix_kukaGereed : BOOL; 		// Gereed/persencompleet
+	ix_kukaAlarmIN : BOOL; 		// alarm
 	
 	
 END_VAR]]></Declaration>

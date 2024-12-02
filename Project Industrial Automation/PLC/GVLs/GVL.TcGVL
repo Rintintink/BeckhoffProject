@@ -5,7 +5,7 @@
 VAR_GLOBAL
 	
 	safetyOK : BOOL;
-	
+	i_KUKAStatus : INT;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

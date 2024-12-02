@@ -4,7 +4,7 @@
     <Declaration><![CDATA[FUNCTION FC_PRG1 : BOOL
 VAR_INPUT
 	SafetyOK : BOOL;
-	KukaOK : BOOL;
+	KukaStatus : INT;
 END_VAR
 VAR
 
@@ -19,7 +19,7 @@ END_VAR
 CASE DB_PRG1.PRG1Stap OF
 	
 	0:
-		IF SafetyOK AND KukaOK THEN
+		IF SafetyOK AND KukaStatus = 1 THEN
 			DB_PRG1.PRG1Stap := 5;
 		END_IF
 
@@ -34,8 +34,6 @@ CASE DB_PRG1.PRG1Stap OF
 			DB_PRG1.PRG1Stap := 10;
 		END_IF
 		
-		
-	 
 	;
 	10: // inlezen fotocel lengte
 	
@@ -110,8 +108,7 @@ END_CASE]]></ST>
       <LineId Id="57" Count="0" />
       <LineId Id="56" Count="0" />
       <LineId Id="55" Count="0" />
-      <LineId Id="50" Count="1" />
-      <LineId Id="48" Count="0" />
+      <LineId Id="50" Count="0" />
       <LineId Id="39" Count="0" />
       <LineId Id="31" Count="1" />
       <LineId Id="59" Count="0" />

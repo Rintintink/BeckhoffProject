@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Refactors>
+  <Renames>
+    <RenamedSymbol>
+      <Type guid="125f7c14-bc07-4185-8080-6bf9d7d4c446">DB10_Alias</Type>
+      <From>ix_kukaComm3</From>
+      <To>ix_kukaGereed</To>
+    </RenamedSymbol>
+    <RenamedSymbol>
+      <Type guid="125f7c14-bc07-4185-8080-6bf9d7d4c446">DB10_Alias</Type>
+      <From>ix_kukaComm4</From>
+      <To>ix_kukaAlarmIN</To>
+    </RenamedSymbol>
+  </Renames>
+</Refactors>
