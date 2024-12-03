@@ -5,7 +5,8 @@
 VAR_GLOBAL
 	
 	safetyOK : BOOL := FALSE;
-	
+	b_StartPRG : BOOL;
+	b_StopPRG : BOOL;
 	// KUKA communicaties	
 	i_KUKAStatus : INT;
 	b_startBeweging : BOOL;

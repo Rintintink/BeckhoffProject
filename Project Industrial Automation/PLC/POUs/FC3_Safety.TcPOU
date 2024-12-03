@@ -10,7 +10,7 @@ END_VAR
     <Implementation>
       <ST><![CDATA[
 
-IF  DB10_Alias.ix_E_stopNC AND NOT DB10_Alias.ix_E_stopNO THEN
+IF  DB10_Alias.ix_E_stopNC AND NOT DB10_Alias.ix_kukaAlarmIN THEN
 	
 	FC3_Safety := TRUE;
 ELSE

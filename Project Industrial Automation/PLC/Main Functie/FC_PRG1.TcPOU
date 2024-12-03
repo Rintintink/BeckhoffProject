@@ -52,16 +52,19 @@ CASE DB_PRG1.PRG1Stap OF
 	
 	30:	// cuttingtool aan en extruderstop laag
 		DB10_Alias.qx_relaisCuttingtoolActiveer := TRUE;
-		DB_PRG1.t_prgT2(IN:=TRUE,PT:=T#4S); // 4 seconden timeout voor cuttingtool.
+		DB_PRG1.t_prgT2(IN:=TRUE,PT:=T#6S); // 4 seconden timeout voor cuttingtool.
 		
 		IF DB10_Alias.ix_reedCuttingtoolCilinderGesloten THEN
 	
 			DB10_Alias.qx_relaisExtruderStop := FALSE;
 			DB10_Alias.qx_relaisCuttingtoolActiveer := FALSE;
 			DB_PRG1.PRG1Stap:= 40;
-			
+		(*ELSIF DB_PRG1.t_prgT2.ET > T#2S THEN
+			DB10_Alias.qx_relaisExtruderStop := FALSE;
+			DB10_Alias.qx_relaisCuttingtoolActiveer := FALSE;
+			DB_PRG1.t_prgT2.IN := FALSE;			*)
 		ELSIF DB_PRG1.t_prgT2.Q THEN
-	
+			
 			DB_PRG1.t_prgT2.IN := FALSE;
 			Foutcode := 1;
 			DB_PRG1.PRG1Stap:= 808;
@@ -69,12 +72,11 @@ CASE DB_PRG1.PRG1Stap OF
 		END_IF
 	;
 	40:	// cuttingtool deactiveer
-		IF DB_PRG1.t_prgT2.Q THEN
-			DB10_Alias.qx_relaisCuttingtoolDeactiveer := TRUE;	
-			DB_PRG1.t_prgT2.IN := FALSE;
-		END_IF
 		
-		DB_PRG1.t_prgT3(IN:=TRUE,PT:=T#4S);
+		DB10_Alias.qx_relaisCuttingtoolDeactiveer := TRUE;	
+		DB_PRG1.t_prgT2.IN := FALSE;
+		
+		DB_PRG1.t_prgT3(IN:=TRUE,PT:=T#6S);
 		
 		IF DB10_Alias.ix_reedCuttingtoolCilinderOpen THEN
 			DB10_Alias.qx_relaisCuttingtoolDeactiveer := FALSE;
@@ -107,13 +109,14 @@ CASE DB_PRG1.PRG1Stap OF
 			3:
 			;
 			ELSE
-			DB_PRG1.PRG1Stap := 900;	
+			//DB_PRG1.PRG1Stap := 900;	
 			
 		END_CASE
 			
 	;
 	900: // reset en terug naar start.
-		
+		DB_PRG1.t_prgT1.IN := FALSE;
+		DB_PRG1.t_prgT2.IN := FALSE;
 		GVL.b_startBeweging := FALSE;
 		DB_PRG1.PRG1Stap := 0;
 	;
@@ -154,6 +157,7 @@ END_CASE]]></ST>
       <LineId Id="88" Count="0" />
       <LineId Id="83" Count="1" />
       <LineId Id="82" Count="0" />
+      <LineId Id="162" Count="2" />
       <LineId Id="73" Count="1" />
       <LineId Id="87" Count="0" />
       <LineId Id="90" Count="0" />
@@ -164,7 +168,6 @@ END_CASE]]></ST>
       <LineId Id="114" Count="0" />
       <LineId Id="116" Count="0" />
       <LineId Id="115" Count="0" />
-      <LineId Id="120" Count="0" />
       <LineId Id="113" Count="0" />
       <LineId Id="121" Count="0" />
       <LineId Id="117" Count="1" />
@@ -176,7 +179,8 @@ END_CASE]]></ST>
       <LineId Id="111" Count="0" />
       <LineId Id="139" Count="1" />
       <LineId Id="145" Count="2" />
-      <LineId Id="141" Count="1" />
+      <LineId Id="165" Count="0" />
+      <LineId Id="142" Count="0" />
       <LineId Id="112" Count="0" />
       <LineId Id="46" Count="0" />
       <LineId Id="38" Count="0" />
@@ -192,6 +196,7 @@ END_CASE]]></ST>
       <LineId Id="85" Count="1" />
       <LineId Id="14" Count="0" />
       <LineId Id="101" Count="0" />
+      <LineId Id="160" Count="0" />
       <LineId Id="149" Count="0" />
       <LineId Id="148" Count="0" />
       <LineId Id="102" Count="0" />

@@ -5,7 +5,7 @@
 VAR_INPUT
 	ix_gereed : BOOL;
 	ix_ALARM : BOOL;
-	
+	//ix_bewegingVoltooid : BOOL;
 END_VAR
 VAR
 END_VAR
@@ -21,7 +21,8 @@ ELSIF ix_ALARM THEN													// status alarms
 	FC_Comms1 := 3;
 ELSE 
 	FC_Comms1 := 0;													// iets anders 
-END_IF]]></ST>
+END_IF
+]]></ST>
     </Implementation>
     <LineIds Name="FC_Comms1">
       <LineId Id="7" Count="0" />
@@ -31,6 +32,7 @@ END_IF]]></ST>
       <LineId Id="29" Count="1" />
       <LineId Id="16" Count="3" />
       <LineId Id="14" Count="0" />
+      <LineId Id="41" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>

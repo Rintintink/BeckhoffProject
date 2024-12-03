@@ -17,9 +17,14 @@ VAR_OUTPUT
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[
+
+(*DB10_Alias.qx_kukaCommEstop:=FC_Comms2.qx_E_Stop;
+DB10_Alias.qx_kukaComm2:=FC_Comms2.qx_StartBeweging;*)]]></ST>
     </Implementation>
     <LineIds Name="FC_Comms2">
+      <LineId Id="23" Count="1" />
+      <LineId Id="22" Count="0" />
       <LineId Id="7" Count="0" />
     </LineIds>
   </POU>

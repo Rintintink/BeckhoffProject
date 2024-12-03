@@ -5,10 +5,11 @@
 VAR_GLOBAL
 		
 
-	b_IOSimulatie : BOOL := TRUE;
-	// ingangen Noodstop
+	b_IOSimulatie : BOOL := FALSE;
+	// ingangen Nood, start & stop
 	ix_E_stopNC : BOOL;
-	ix_E_stopNO : BOOL; 
+	ix_startKnop : BOOL;
+	ix_stopKnop : BOOL; 
 	
 	// ingangen fotocel
 	ix_lengteFC : BOOL;
@@ -33,7 +34,7 @@ VAR_GLOBAL
 	// E stop
 	// bitlevel comm's
 	qx_kukaCommEstop : BOOL; 	// E_stop
-	qx_kukaComm2 : BOOL; 		// startcommando
+	qx_kukaCommStart : BOOL; 		// startcommando
 	ix_kukaGereed : BOOL; 		// Gereed/persencompleet
 	ix_kukaAlarmIN : BOOL; 		// alarm
 	

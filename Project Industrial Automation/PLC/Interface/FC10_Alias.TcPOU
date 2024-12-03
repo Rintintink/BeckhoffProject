@@ -8,50 +8,45 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[
-IF NOT DB10_Alias.b_IOSimulatie THEN
-(*		
+      <ST><![CDATA[IF NOT DB10_Alias.b_IOSimulatie THEN
+		
 	// ingangen Noodstop
-	ix_E_stopNC := DIDO.Ingang1;
-	ix_E_stopNO : DIDO.Ingang2; 
+	DB10_Alias.ix_E_stopNC := DIDO.Ingang15;
+	DB10_Alias.ix_startKnop := DIDO.Ingang8;
+	DB10_Alias.ix_stopKnop := DIDO.Ingang7; 
 	
 	// ingangen fotocel
-	ix_lengteFC : BOOL;
-	ix_hamsterGripperDetectieFC : BOOL;
+	DB10_Alias.ix_lengteFC := NOT DIDO.Ingang5;
+	//DB10_Alias.ix_hamsterGripperDetectieFC := BOOL;
 	
-	ix_reedCuttingtoolCilinderOpen : BOOL;
-	ix_reedCuttingtoolCilinderGesloten : BOOL;
-	ix_reedGripperCilinder1 : BOOL;
-	ix_reedGripperCilinder2 : BOOL;
+	DB10_Alias.ix_reedCuttingtoolCilinderOpen := DIDO.Ingang13;
+	DB10_Alias.ix_reedCuttingtoolCilinderGesloten := DIDO.Ingang14;
+	//DB10_Alias.ix_reedGripperCilinder1 := BOOL;
+	//DB10_Alias.ix_reedGripperCilinder2 := BOOL;
 	
-	// start/ stop uitgangen extruder&cutting tool
-	qx_relaisExtruderStart : BOOL;
-	qx_relaisExtruderStop: BOOL;
-	qx_relaisCuttingtoolActiveer : BOOL;
-	qx_relaisCuttingtoolDeactiveer : BOOL;
+	// uitgangen - status uit DB10_Alias
+	DIDO.Uitgang9 := DB10_Alias.qx_relaisExtruderStart;
+	DIDO.Uitgang10 := DB10_Alias.qx_relaisExtruderStop;
+	DIDO.Uitgang11 := DB10_Alias.qx_relaisCuttingtoolActiveer;
+	DIDO.Uitgang12 := DB10_Alias.qx_relaisCuttingtoolDeactiveer;
 	
 	// uitgangen ventielaansturing
-	qx_ventielEen : BOOL; 
-	qx_ventielTwee : BOOL; 
+	DIDO.Uitgang3 := DB10_Alias.qx_ventielEen;
+	//DIDO.UitgangX := DB10_Alias.qx_ventielTwee; 
 	
-	//uitgangen gereserveerd voor KUKA/Engel communicatie
-	// E stop
-	// bitlevel comm's
-	qx_kukaCommEstop : BOOL; 	// E_stop
-	qx_kukaComm2 : BOOL; 		// startcommando
-	ix_kukaComm3 : BOOL; 		// persencompleet
-	ix_kukaComm4 : BOOL; 		// alarm
+	// uitgangen gereserveerd voor KUKA/Engel communicatie
+	DIDO.Uitgang7 := DB10_Alias.qx_kukaCommEstop; 	// E_stop
+	DIDO.Uitgang8 := DB10_Alias.qx_kukaCommStart; 	// startcommando
+	DB10_Alias.ix_kukaGereed := DIDO.Ingang9; 		// persencompleet
+	DB10_Alias.ix_kukaAlarmIN := DIDO.Ingang10; 	// alarm
 
-	*)
-	
 END_IF
 ]]></ST>
     </Implementation>
     <LineIds Name="FC10_Alias">
-      <LineId Id="46" Count="0" />
-      <LineId Id="11" Count="0" />
-      <LineId Id="49" Count="32" />
-      <LineId Id="47" Count="1" />
+      <LineId Id="158" Count="4" />
+      <LineId Id="190" Count="0" />
+      <LineId Id="163" Count="26" />
       <LineId Id="7" Count="0" />
     </LineIds>
   </POU>
