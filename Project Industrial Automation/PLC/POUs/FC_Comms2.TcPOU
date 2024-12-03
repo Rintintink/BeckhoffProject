@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="FC_Comms2" Id="{1e780b85-bf07-42d1-94f1-a6941c80cb9c}" SpecialFunc="None">
+    <Declaration><![CDATA[
+FUNCTION FC_Comms2
+
+VAR_INPUT
+	ix_Safety : BOOL := FALSE;	
+	b_startBeweging : BOOL;
+	
+END_VAR
+VAR
+END_VAR
+VAR_OUTPUT
+	qx_E_Stop : BOOL;
+	qx_StartBeweging : BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <LineIds Name="FC_Comms2">
+      <LineId Id="7" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -114,7 +114,7 @@ CASE DB_PRG1.PRG1Stap OF
 	;
 	900: // reset en terug naar start.
 		
-		GVL.b_startBeweging := TRUE;
+		GVL.b_startBeweging := FALSE;
 		DB_PRG1.PRG1Stap := 0;
 	;
 END_CASE]]></ST>

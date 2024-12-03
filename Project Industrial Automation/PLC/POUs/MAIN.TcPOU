@@ -4,7 +4,7 @@
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
 	FB2_Counters : FB2_Counters;
-	
+
 END_VAR
 	]]></Declaration>
     <Implementation>
@@ -20,11 +20,18 @@ GVL.i_KUKAStatus := FC_Comms1(DB10_Alias.ix_kukaGereed,DB10_Alias.ix_kukaAlarmIN
  
 FC_PRG1(GVL.safetyOK, GVL.i_KUKAStatus); // hardcoded '1' vanaf de KUKA; // GVL.i_KUKAStatus
 
-// FC COmms to KUKA]]></ST>
+// FC COmms to KUKA
+	
+FC_Comms2(GVL.safetyOK,GVL.b_startBeweging);
+DB10_Alias.qx_kukaCommEstop:=FC_Comms2.qx_E_Stop;
+DB10_Alias.qx_kukaComm2:=FC_Comms2.qx_StartBeweging;
+]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
       <LineId Id="161" Count="11" />
       <LineId Id="58" Count="0" />
+      <LineId Id="189" Count="3" />
+      <LineId Id="179" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>
