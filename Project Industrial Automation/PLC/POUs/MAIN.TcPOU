@@ -18,7 +18,7 @@ GVL.safetyOK := FC3_Safety();
 GVL.i_KUKAStatus := FC_Comms1(DB10_Alias.ix_kukaGereed,DB10_Alias.ix_kukaAlarmIN);
 
  
-FC_PRG1(GVL.safetyOK, 1); // hardcoded '1' vanaf de KUKA; // GVL.i_KUKAStatus
+FC_PRG1(GVL.safetyOK, GVL.i_KUKAStatus); // hardcoded '1' vanaf de KUKA; // GVL.i_KUKAStatus
 
 // FC COmms to KUKA]]></ST>
     </Implementation>

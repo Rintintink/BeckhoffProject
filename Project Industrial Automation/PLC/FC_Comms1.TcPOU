@@ -13,12 +13,14 @@ END_VAR
     <Implementation>
       <ST><![CDATA[// KUKA Robot naar PLC communicatie;
 
-IF ix_gereed AND NOT ix_ALARM THEN
-	FC_Comms1 := 1;
-ELSIF ix_ALARM THEN
+IF ix_gereed AND DB_PRG1.PRG1Stap = 50 AND NOT ix_ALARM THEN		//status beweging actief
 	FC_Comms1 := 2;
+ELSIF ix_gereed AND NOT ix_ALARM THEN								//status gereed wacht op beweeg
+	FC_Comms1 := 1;
+ELSIF ix_ALARM THEN													// status alarms
+	FC_Comms1 := 3;
 ELSE 
-	FC_Comms1 := 0;	
+	FC_Comms1 := 0;													// iets anders 
 END_IF]]></ST>
     </Implementation>
     <LineIds Name="FC_Comms1">
@@ -26,6 +28,7 @@ END_IF]]></ST>
       <LineId Id="12" Count="0" />
       <LineId Id="11" Count="0" />
       <LineId Id="13" Count="0" />
+      <LineId Id="29" Count="1" />
       <LineId Id="16" Count="3" />
       <LineId Id="14" Count="0" />
     </LineIds>
