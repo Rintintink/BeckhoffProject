@@ -19,7 +19,7 @@ END_VAR
 CASE DB_PRG1.PRG1Stap OF
 	
 	0:
-		IF SafetyOK AND KukaStatus = 1 THEN
+		IF SafetyOK AND KukaStatus = 1 AND GVL.b_StartPRG THEN
 			DB_PRG1.PRG1Stap := 5;
 		END_IF
 
@@ -95,16 +95,21 @@ CASE DB_PRG1.PRG1Stap OF
 		IF GVL.i_KUKAStatus = 1 THEN
 			
 			DB10_Alias.qx_ventielEen := TRUE;
-			DB_PRG1.t_prgT5(IN := TRUE,PT:=T#3S);
+			DB_PRG1.t_prgT5_resetKukaGereed(IN := TRUE,PT:=T#3S);
 			DB_PRG1.PRG1Stap := 60;
 			
 		END_IF
 	;
-	60:	
-		IF DB_PRG1.t_prgT5.Q THEN 
-			DB_PRG1.t_prgT5(IN := FALSE);
+	60:	// Timers zijn ter simulatie. Signalen komen vanaf de KUKA
+		DB_PRG1.t_prgT5_resetKukaGereed(IN := TRUE,PT:=T#3S);
+		DB_PRG1.t_prgT6_Stap60advance(IN := TRUE,PT:=T#20S);
+		IF DB_PRG1.t_prgT5_resetKukaGereed.Q THEN 
+			DB_PRG1.t_prgT5_resetKukaGereed(IN := FALSE);
 			DB10_Alias.ix_kukaGereed := FALSE; /// <<<<<<<<<<<<<<<<< Ter simulatie. Moet vanaf de Kuka komen.
 		END_IF;
+		IF DB_PRG1.t_prgT6_Stap60advance.Q AND DB10_Alias.ix_kukaGereed THEN
+			DB_PRG1.PRG1Stap := 70;
+		END_IF
 		
 		
 		
@@ -115,9 +120,9 @@ CASE DB_PRG1.PRG1Stap OF
 	808: // Fout fout hella fout
 		
 		CASE Foutcode OF
-			1: Melding := 'Cuttingtool sluiten fout'
+			1: Melding := 'Cuttingtool sluiten fout';
 			; 
-			2: Melding := 'Cuttingtool openen fout'
+			2: Melding := 'Cuttingtool openen fout';
 			;
 			3:
 			;
@@ -130,10 +135,18 @@ CASE DB_PRG1.PRG1Stap OF
 			END_IF 			
 	;
 	900: // reset en terug naar start.
-		DB_PRG1.t_prgT1_extruderRelaisAan.IN := FALSE;
-		DB_PRG1.t_prgT2_extruderRelaisStop.IN := FALSE;
-		GVL.b_startBeweging := FALSE;
-		DB_PRG1.PRG1Stap := 0;
+	
+		DB_PRG1.t_prgT7_PRGStopRelaisTimer(IN := TRUE,PT:=T#4S);
+		DB10_Alias.qx_relaisCuttingtoolDeactiveer := TRUE;
+		DB10_Alias.qx_relaisExtruderStop := TRUE;
+		DB10_Alias.qx_ventielEen := FALSE;
+		
+		IF DB_PRG1.t_prgT7_PRGStopRelaisTimer.Q THEN
+			DB10_Alias.qx_relaisCuttingtoolDeactiveer := FALSE;
+			DB10_Alias.qx_relaisExtruderStop := FALSE;
+			DB_PRG1.t_prgT7_PRGStopRelaisTimer.IN := FALSE;
+			DB_PRG1.PRG1Stap := 0;
+		END_IF
 	;
 	
 	950: // tussentijdse reset of Safety
@@ -205,14 +218,16 @@ END_CASE]]></ST>
       <LineId Id="142" Count="0" />
       <LineId Id="112" Count="0" />
       <LineId Id="46" Count="0" />
+      <LineId Id="213" Count="0" />
+      <LineId Id="215" Count="0" />
       <LineId Id="209" Count="1" />
       <LineId Id="212" Count="0" />
       <LineId Id="211" Count="0" />
+      <LineId Id="214" Count="0" />
+      <LineId Id="216" Count="1" />
       <LineId Id="200" Count="0" />
+      <LineId Id="219" Count="2" />
       <LineId Id="203" Count="0" />
-      <LineId Id="202" Count="0" />
-      <LineId Id="199" Count="0" />
-      <LineId Id="198" Count="0" />
       <LineId Id="196" Count="1" />
       <LineId Id="38" Count="0" />
       <LineId Id="195" Count="0" />
@@ -221,7 +236,8 @@ END_CASE]]></ST>
       <LineId Id="95" Count="0" />
       <LineId Id="94" Count="0" />
       <LineId Id="93" Count="0" />
-      <LineId Id="96" Count="2" />
+      <LineId Id="218" Count="0" />
+      <LineId Id="97" Count="1" />
       <LineId Id="100" Count="0" />
       <LineId Id="99" Count="0" />
       <LineId Id="92" Count="0" />
@@ -229,10 +245,15 @@ END_CASE]]></ST>
       <LineId Id="193" Count="1" />
       <LineId Id="86" Count="0" />
       <LineId Id="14" Count="0" />
+      <LineId Id="222" Count="0" />
       <LineId Id="101" Count="0" />
       <LineId Id="160" Count="0" />
-      <LineId Id="149" Count="0" />
-      <LineId Id="148" Count="0" />
+      <LineId Id="223" Count="1" />
+      <LineId Id="234" Count="0" />
+      <LineId Id="227" Count="2" />
+      <LineId Id="233" Count="0" />
+      <LineId Id="231" Count="0" />
+      <LineId Id="226" Count="0" />
       <LineId Id="102" Count="0" />
       <LineId Id="176" Count="1" />
       <LineId Id="189" Count="0" />

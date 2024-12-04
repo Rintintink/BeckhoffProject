@@ -15,10 +15,14 @@ IF (DB10_Alias.ix_stopKnop AND DB10_Alias.ix_startKnop) OR NOT GVL.safetyOK THEN
 ELSIF DB10_Alias.ix_stopKnop THEN
 	GVL.b_StopPRG := TRUE;
 	GVL.b_StartPRG := FALSE;
-ELSIF DB10_Alias.ix_startKnop THEN
+ELSIF DB10_Alias.ix_startKnop AND GVL.i_KUKAStatus = 1 THEN
 	GVL.b_StartPRG := TRUE;
 	GVL.b_StopPRG := FALSE;
-END_IF]]></ST>
+END_IF
+IF GVL.b_StopPRG THEN
+	DB_PRG1.PRG1Stap := 900;
+END_IF
+]]></ST>
     </Implementation>
     <LineIds Name="FC_StartStopReset">
       <LineId Id="8" Count="1" />
@@ -27,6 +31,8 @@ END_IF]]></ST>
       <LineId Id="21" Count="0" />
       <LineId Id="16" Count="0" />
       <LineId Id="7" Count="0" />
+      <LineId Id="27" Count="2" />
+      <LineId Id="26" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>

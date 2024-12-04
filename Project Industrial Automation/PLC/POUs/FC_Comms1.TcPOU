@@ -13,7 +13,7 @@ END_VAR
     <Implementation>
       <ST><![CDATA[// KUKA Robot naar PLC communicatie;
 
-IF ix_gereed AND DB_PRG1.PRG1Stap = 60 AND NOT ix_ALARM THEN		//status beweging actief
+IF DB_PRG1.PRG1Stap = 60 AND NOT ix_ALARM THEN		//status beweging actief
 	FC_Comms1 := 2;
 ELSIF ix_gereed AND NOT ix_ALARM THEN								//status gereed wacht op beweeg
 	FC_Comms1 := 1;

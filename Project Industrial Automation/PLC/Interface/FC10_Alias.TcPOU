@@ -17,7 +17,7 @@ END_VAR
 	
 	// ingangen fotocel
 	DB10_Alias.ix_lengteFC := NOT DIDO.Ingang5;
-	//DB10_Alias.ix_hamsterGripperDetectieFC := BOOL;
+	//DB10_Alias.ix_hamsterGripperDetectieFC := NOT DIDO.Ingang6;
 	
 
 	//DB10_Alias.ix_reedCuttingtoolCilinderOpen := DIDO.Ingang13;

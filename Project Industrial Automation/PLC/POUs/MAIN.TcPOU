@@ -20,11 +20,7 @@ GVL.i_KUKAStatus := FC_Comms1(DB10_Alias.ix_kukaGereed,DB10_Alias.ix_kukaAlarmIN
 
 FC_StartStopReset();
 
-IF GVL.b_StartPRG THEN
-	FC_PRG1(GVL.safetyOK, GVL.i_KUKAStatus); // hardcoded '1' vanaf de KUKA; // GVL.i_KUKAStatus
-END_IF
-
-
+FC_PRG1(GVL.safetyOK, GVL.i_KUKAStatus); // hardcoded '1' vanaf de KUKA; // GVL.i_KUKAStatus
 
 // FC COmms to KUKA
 	
@@ -38,11 +34,9 @@ FC_Comms2(GVL.safetyOK,GVL.b_startBeweging);
       <LineId Id="212" Count="0" />
       <LineId Id="214" Count="2" />
       <LineId Id="224" Count="0" />
-      <LineId Id="205" Count="1" />
+      <LineId Id="205" Count="0" />
       <LineId Id="165" Count="0" />
       <LineId Id="209" Count="0" />
-      <LineId Id="166" Count="0" />
-      <LineId Id="171" Count="1" />
       <LineId Id="58" Count="0" />
       <LineId Id="189" Count="1" />
       <LineId Id="179" Count="0" />

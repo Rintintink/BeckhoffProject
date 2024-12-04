@@ -9,9 +9,9 @@ VAR_GLOBAL
 	t_prgT2_extruderRelaisStop : TON;
 	t_prgT3_cuttingRelaisAan : TON;
 	t_prgT4_cuttingRelaisUit : TON;
-	t_prgT5 : TON;
-	t_prgT6 : TON;
-	t_prgT7 : TON;
+	t_prgT5_resetKukaGereed : TON; // <<<<<<<<<<<<<<<<< Ter simulatie. IRL signaal van KUKA die dit regelt.
+	t_prgT6_Stap60advance : TON;
+	t_prgT7_PRGStopRelaisTimer : TON;
 	t_prgT8 : TON;
 END_VAR]]></Declaration>
   </GVL>
