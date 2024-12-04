@@ -18,14 +18,8 @@ GVL.safetyOK := FC3_Safety();
 // FC Comms from KUKA.
 GVL.i_KUKAStatus := FC_Comms1(DB10_Alias.ix_kukaGereed,DB10_Alias.ix_kukaAlarmIN);
 
- 
-IF DB10_Alias.ix_startKnop THEN
-	GVL.b_StartPRG := TRUE;
-	GVL.b_StopPRG := FALSE;
-ELSIF DB10_Alias.ix_stopKnop THEN
-	GVL.b_StopPRG := TRUE;
-	GVL.b_StartPRG := FALSE;
-END_IF
+FC_StartStopReset();
+
 IF GVL.b_StartPRG THEN
 	FC_PRG1(GVL.safetyOK, GVL.i_KUKAStatus); // hardcoded '1' vanaf de KUKA; // GVL.i_KUKAStatus
 END_IF
@@ -42,12 +36,8 @@ FC_Comms2(GVL.safetyOK,GVL.b_startBeweging);
       <LineId Id="210" Count="0" />
       <LineId Id="203" Count="0" />
       <LineId Id="212" Count="0" />
-      <LineId Id="214" Count="3" />
-      <LineId Id="200" Count="0" />
-      <LineId Id="204" Count="0" />
-      <LineId Id="223" Count="0" />
-      <LineId Id="218" Count="1" />
-      <LineId Id="222" Count="0" />
+      <LineId Id="214" Count="2" />
+      <LineId Id="224" Count="0" />
       <LineId Id="205" Count="1" />
       <LineId Id="165" Count="0" />
       <LineId Id="209" Count="0" />

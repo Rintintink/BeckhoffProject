@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="FC_StartStopReset" Id="{dee57a70-d1bc-45b5-be67-c879719edd13}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION FC_StartStopReset : BOOL
+VAR_INPUT
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// start/stopknop regeling
+IF (DB10_Alias.ix_stopKnop AND DB10_Alias.ix_startKnop) OR NOT GVL.safetyOK THEN
+	DB_PRG1.PRG1Stap := 950;	 
+
+ELSIF DB10_Alias.ix_stopKnop THEN
+	GVL.b_StopPRG := TRUE;
+	GVL.b_StartPRG := FALSE;
+ELSIF DB10_Alias.ix_startKnop THEN
+	GVL.b_StartPRG := TRUE;
+	GVL.b_StopPRG := FALSE;
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="FC_StartStopReset">
+      <LineId Id="8" Count="1" />
+      <LineId Id="19" Count="0" />
+      <LineId Id="11" Count="4" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="16" Count="0" />
+      <LineId Id="7" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

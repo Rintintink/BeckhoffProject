@@ -19,8 +19,9 @@ END_VAR
 	DB10_Alias.ix_lengteFC := NOT DIDO.Ingang5;
 	//DB10_Alias.ix_hamsterGripperDetectieFC := BOOL;
 	
-	DB10_Alias.ix_reedCuttingtoolCilinderOpen := DIDO.Ingang13;
-	DB10_Alias.ix_reedCuttingtoolCilinderGesloten := DIDO.Ingang14;
+
+	//DB10_Alias.ix_reedCuttingtoolCilinderOpen := DIDO.Ingang13;
+	//DB10_Alias.ix_reedCuttingtoolCilinderGesloten := DIDO.Ingang14;
 	//DB10_Alias.ix_reedGripperCilinder1 := BOOL;
 	//DB10_Alias.ix_reedGripperCilinder2 := BOOL;
 	
@@ -37,8 +38,8 @@ END_VAR
 	// uitgangen gereserveerd voor KUKA/Engel communicatie
 	DIDO.Uitgang7 := DB10_Alias.qx_kukaCommEstop; 	// E_stop
 	DIDO.Uitgang8 := DB10_Alias.qx_kukaCommStart; 	// startcommando
-	DB10_Alias.ix_kukaGereed := DIDO.Ingang9; 		// persencompleet
-	DB10_Alias.ix_kukaAlarmIN := DIDO.Ingang10; 	// alarm
+	//DB10_Alias.ix_kukaGereed := DIDO.Ingang9; 		// persencompleet
+	//DB10_Alias.ix_kukaAlarmIN := DIDO.Ingang10; 	// alarm
 
 END_IF
 ]]></ST>
@@ -46,7 +47,9 @@ END_IF
     <LineIds Name="FC10_Alias">
       <LineId Id="158" Count="4" />
       <LineId Id="190" Count="0" />
-      <LineId Id="163" Count="26" />
+      <LineId Id="163" Count="4" />
+      <LineId Id="198" Count="0" />
+      <LineId Id="168" Count="21" />
       <LineId Id="7" Count="0" />
     </LineIds>
   </POU>

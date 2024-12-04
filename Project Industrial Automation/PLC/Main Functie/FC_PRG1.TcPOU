@@ -25,12 +25,12 @@ CASE DB_PRG1.PRG1Stap OF
 
 	5:
 		//extruder start aan
-		DB_PRG1.t_prgT1(IN:=TRUE,PT:=T#2S);
+		DB_PRG1.t_prgT1_extruderRelaisAan(IN:=TRUE,PT:=T#2S);
 		DB10_Alias.qx_relaisExtruderStart := TRUE;
 		
-		IF DB_PRG1.t_prgT1.Q THEN
+		IF DB_PRG1.t_prgT1_extruderRelaisAan.Q THEN
 			DB10_Alias.qx_relaisExtruderStart := FALSE;
-			DB_PRG1.t_prgT1.IN := FALSE;
+			DB_PRG1.t_prgT1_extruderRelaisAan.IN := FALSE;
 			DB_PRG1.PRG1Stap := 10;
 		END_IF
 		
@@ -52,7 +52,7 @@ CASE DB_PRG1.PRG1Stap OF
 	
 	30:	// cuttingtool aan en extruderstop laag
 		DB10_Alias.qx_relaisCuttingtoolActiveer := TRUE;
-		DB_PRG1.t_prgT2(IN:=TRUE,PT:=T#6S); // 4 seconden timeout voor cuttingtool.
+		DB_PRG1.t_prgT2_extruderRelaisStop(IN:=TRUE,PT:=T#6S); // 4 seconden timeout voor cuttingtool.
 		
 		IF DB10_Alias.ix_reedCuttingtoolCilinderGesloten THEN
 	
@@ -63,9 +63,9 @@ CASE DB_PRG1.PRG1Stap OF
 			DB10_Alias.qx_relaisExtruderStop := FALSE;
 			DB10_Alias.qx_relaisCuttingtoolActiveer := FALSE;
 			DB_PRG1.t_prgT2.IN := FALSE;			*)
-		ELSIF DB_PRG1.t_prgT2.Q THEN
+		ELSIF DB_PRG1.t_prgT2_extruderRelaisStop.Q THEN
 			
-			DB_PRG1.t_prgT2.IN := FALSE;
+			DB_PRG1.t_prgT2_extruderRelaisStop.IN := FALSE;
 			Foutcode := 1;
 			DB_PRG1.PRG1Stap:= 808;
 			
@@ -74,33 +74,46 @@ CASE DB_PRG1.PRG1Stap OF
 	40:	// cuttingtool deactiveer
 		
 		DB10_Alias.qx_relaisCuttingtoolDeactiveer := TRUE;	
-		DB_PRG1.t_prgT2.IN := FALSE;
+		DB_PRG1.t_prgT2_extruderRelaisStop.IN := FALSE;
 		
-		DB_PRG1.t_prgT3(IN:=TRUE,PT:=T#6S);
+		DB_PRG1.t_prgT3_cuttingRelaisAan(IN:=TRUE,PT:=T#6S);
 		
 		IF DB10_Alias.ix_reedCuttingtoolCilinderOpen THEN
 			DB10_Alias.qx_relaisCuttingtoolDeactiveer := FALSE;
 			GVL.b_startBeweging := TRUE;
 			DB_PRG1.PRG1Stap := 50;
 			
-		ELSIF DB_PRG1.t_prgT3.Q THEN
+		ELSIF DB_PRG1.t_prgT3_cuttingRelaisAan.Q THEN
 	
-			DB_PRG1.t_prgT3.IN := FALSE;
+			DB_PRG1.t_prgT3_cuttingRelaisAan.IN := FALSE;
 			Foutcode := 2;
 			DB_PRG1.PRG1Stap:= 808;
 			
 		END_IF
 	
-	50: // Wacht op terugsignaal van de Kuka
-		
-		IF KukaStatus = 1 THEN
-			DB_PRg1.PRG1Stap := 900;
+	50: // Check gripperFC en activeer ventiel.
+		IF GVL.i_KUKAStatus = 1 THEN
+			
+			DB10_Alias.qx_ventielEen := TRUE;
+			DB_PRG1.t_prgT5(IN := TRUE,PT:=T#3S);
+			DB_PRG1.PRG1Stap := 60;
+			
 		END_IF
+	;
+	60:	
+		IF DB_PRG1.t_prgT5.Q THEN 
+			DB_PRG1.t_prgT5(IN := FALSE);
+			DB10_Alias.ix_kukaGereed := FALSE; /// <<<<<<<<<<<<<<<<< Ter simulatie. Moet vanaf de Kuka komen.
+		END_IF;
 		
-	
+		
+		
+
+ 
 	;
 	
 	808: // Fout fout hella fout
+		
 		CASE Foutcode OF
 			1: Melding := 'Cuttingtool sluiten fout'
 			; 
@@ -112,13 +125,20 @@ CASE DB_PRG1.PRG1Stap OF
 			//DB_PRG1.PRG1Stap := 900;	
 			
 		END_CASE
-			
+			IF GVL.safetyOK THEN
+				DB_PRG1.PRG1Stap := 900;
+			END_IF 			
 	;
 	900: // reset en terug naar start.
-		DB_PRG1.t_prgT1.IN := FALSE;
-		DB_PRG1.t_prgT2.IN := FALSE;
+		DB_PRG1.t_prgT1_extruderRelaisAan.IN := FALSE;
+		DB_PRG1.t_prgT2_extruderRelaisStop.IN := FALSE;
 		GVL.b_startBeweging := FALSE;
 		DB_PRG1.PRG1Stap := 0;
+	;
+	
+	950: // tussentijdse reset of Safety
+
+		
 	;
 END_CASE]]></ST>
     </Implementation>
@@ -177,13 +197,25 @@ END_CASE]]></ST>
       <LineId Id="123" Count="5" />
       <LineId Id="119" Count="0" />
       <LineId Id="111" Count="0" />
-      <LineId Id="139" Count="1" />
-      <LineId Id="145" Count="2" />
+      <LineId Id="139" Count="0" />
       <LineId Id="165" Count="0" />
+      <LineId Id="204" Count="2" />
+      <LineId Id="208" Count="0" />
+      <LineId Id="207" Count="0" />
       <LineId Id="142" Count="0" />
       <LineId Id="112" Count="0" />
       <LineId Id="46" Count="0" />
+      <LineId Id="209" Count="1" />
+      <LineId Id="212" Count="0" />
+      <LineId Id="211" Count="0" />
+      <LineId Id="200" Count="0" />
+      <LineId Id="203" Count="0" />
+      <LineId Id="202" Count="0" />
+      <LineId Id="199" Count="0" />
+      <LineId Id="198" Count="0" />
+      <LineId Id="196" Count="1" />
       <LineId Id="38" Count="0" />
+      <LineId Id="195" Count="0" />
       <LineId Id="89" Count="0" />
       <LineId Id="91" Count="0" />
       <LineId Id="95" Count="0" />
@@ -193,13 +225,19 @@ END_CASE]]></ST>
       <LineId Id="100" Count="0" />
       <LineId Id="99" Count="0" />
       <LineId Id="92" Count="0" />
-      <LineId Id="85" Count="1" />
+      <LineId Id="85" Count="0" />
+      <LineId Id="193" Count="1" />
+      <LineId Id="86" Count="0" />
       <LineId Id="14" Count="0" />
       <LineId Id="101" Count="0" />
       <LineId Id="160" Count="0" />
       <LineId Id="149" Count="0" />
       <LineId Id="148" Count="0" />
       <LineId Id="102" Count="0" />
+      <LineId Id="176" Count="1" />
+      <LineId Id="189" Count="0" />
+      <LineId Id="186" Count="0" />
+      <LineId Id="179" Count="0" />
       <LineId Id="13" Count="0" />
     </LineIds>
   </POU>

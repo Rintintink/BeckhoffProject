@@ -5,10 +5,14 @@
 VAR_GLOBAL
 	PRG1Stap : INT;
 	
-	t_prgT1 : TON;
-	t_prgT2 : TON;
-	t_prgT3 : TON;
-	t_prgT4 : TON;
+	t_prgT1_extruderRelaisAan : TON;
+	t_prgT2_extruderRelaisStop : TON;
+	t_prgT3_cuttingRelaisAan : TON;
+	t_prgT4_cuttingRelaisUit : TON;
+	t_prgT5 : TON;
+	t_prgT6 : TON;
+	t_prgT7 : TON;
+	t_prgT8 : TON;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

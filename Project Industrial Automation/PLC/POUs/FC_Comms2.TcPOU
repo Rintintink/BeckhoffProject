@@ -12,20 +12,33 @@ END_VAR
 VAR
 END_VAR
 VAR_OUTPUT
-	qx_E_Stop : BOOL;
-	qx_StartBeweging : BOOL;
+
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[
 
-(*DB10_Alias.qx_kukaCommEstop:=FC_Comms2.qx_E_Stop;
-DB10_Alias.qx_kukaComm2:=FC_Comms2.qx_StartBeweging;*)]]></ST>
+DB10_Alias.qx_kukaCommEstop := NOT GVL.safetyOK;
+IF DB10_Alias.qx_kukaCommEstop THEN
+	DB_PRG1.PRG1Stap := 808;
+END_IF
+(*
+IF DB_PRG1.PRG1Stap = 60 AND NOT DB10_Alias.qx_kukaCommEstop THEN
+	DB10_Alias.qx_kukaCommStart := TRUE;
+	DB_PRG1.PRG1Stap := 70;
+	;
+END_IF
+*)]]></ST>
     </Implementation>
     <LineIds Name="FC_Comms2">
       <LineId Id="23" Count="1" />
       <LineId Id="22" Count="0" />
+      <LineId Id="41" Count="2" />
+      <LineId Id="46" Count="0" />
       <LineId Id="7" Count="0" />
+      <LineId Id="44" Count="1" />
+      <LineId Id="39" Count="1" />
+      <LineId Id="47" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>
