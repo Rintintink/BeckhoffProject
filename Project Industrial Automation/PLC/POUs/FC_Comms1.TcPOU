@@ -22,6 +22,7 @@ ELSIF ix_ALARM THEN													// status alarms
 ELSE 
 	FC_Comms1 := 3;													// iets anders 
 END_IF
+
 ]]></ST>
     </Implementation>
     <LineIds Name="FC_Comms1">
@@ -32,6 +33,7 @@ END_IF
       <LineId Id="29" Count="1" />
       <LineId Id="16" Count="3" />
       <LineId Id="14" Count="0" />
+      <LineId Id="59" Count="0" />
       <LineId Id="41" Count="0" />
     </LineIds>
   </POU>
